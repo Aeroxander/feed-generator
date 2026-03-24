@@ -1,4 +1,3 @@
-
 {
   "compilerOptions": {
     "lib": [
@@ -12,9 +11,17 @@
     "alwaysStrict": true,
     "allowUnreachableCode": false,
     "strictNullChecks": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@creatonproto/*": [
+        "node_modules/@creatonproto/*"
+      ]
+    }
   },
-  "include": ["./src/**/*.ts"],
+  "include": [
+    "./src/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

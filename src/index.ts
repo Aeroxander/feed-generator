@@ -17,6 +17,12 @@ const run = async () => {
       maybeStr(process.env.FEEDGEN_PUBLISHER_DID) ?? 'did:example:alice',
     subscriptionReconnectDelay:
       maybeInt(process.env.FEEDGEN_SUBSCRIPTION_RECONNECT_DELAY) ?? 3000,
+    tokenAddress:
+      maybeStr(process.env.TOKEN_ADDRESS) ?? '',
+    subgraphUrl: maybeStr(process.env.SUBGRAPH_URL),
+    etherscanApiKey: maybeStr(process.env.ETHERSCAN_API_KEY),
+    tapUrl: maybeStr(process.env.TAP_URL) ?? 'http://localhost:2480',
+    tapPassword: maybeStr(process.env.TAP_ADMIN_PASSWORD),
     hostname,
     serviceDid,
   })

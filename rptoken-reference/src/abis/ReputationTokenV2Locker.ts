@@ -1,0 +1,96 @@
+export const ReputationTokenV2LockerABI = [
+  {
+    type: 'function',
+    name: 'lockTokens',
+    inputs: [{ name: 'amount', type: 'uint256', internalType: 'uint256' }],
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    name: 'unlockTokens',
+    inputs: [{ name: 'amount', type: 'uint256', internalType: 'uint256' }],
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    name: 'mintUpvote',
+    inputs: [
+      { name: 'recipient', type: 'address', internalType: 'address' },
+      { name: 'amount', type: 'uint256', internalType: 'uint256' },
+    ],
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    name: 'mintDownvote',
+    inputs: [
+      { name: 'recipient', type: 'address', internalType: 'address' },
+      { name: 'amount', type: 'uint256', internalType: 'uint256' },
+    ],
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    name: 'getAvailableAllowance',
+    inputs: [{ name: 'user', type: 'address', internalType: 'address' }],
+    outputs: [{ name: '', type: 'uint256', internalType: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    name: 'getLockInfo',
+    inputs: [{ name: 'user', type: 'address', internalType: 'address' }],
+    outputs: [
+      { name: 'userTotalLocked', type: 'uint256', internalType: 'uint256' },
+      { name: 'lastClaimTime', type: 'uint256', internalType: 'uint256' },
+      { name: 'reputationMinted', type: 'uint256', internalType: 'uint256' },
+      { name: 'availableAllowance', type: 'uint256', internalType: 'uint256' },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    name: 'mainToken',
+    inputs: [],
+    outputs: [{ name: '', type: 'address', internalType: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    name: 'reputationToken',
+    inputs: [],
+    outputs: [{ name: '', type: 'address', internalType: 'contract ReputationTokenV2' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    name: 'mintRatePerDay',
+    inputs: [],
+    outputs: [{ name: '', type: 'uint256', internalType: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'event',
+    name: 'UpvoteMinted',
+    inputs: [
+      { name: 'from', type: 'address', indexed: true, internalType: 'address' },
+      { name: 'to', type: 'address', indexed: true, internalType: 'address' },
+      { name: 'amount', type: 'uint256', indexed: false, internalType: 'uint256' },
+    ],
+    anonymous: false,
+  },
+  {
+    type: 'event',
+    name: 'DownvoteMinted',
+    inputs: [
+      { name: 'from', type: 'address', indexed: true, internalType: 'address' },
+      { name: 'to', type: 'address', indexed: true, internalType: 'address' },
+      { name: 'amount', type: 'uint256', indexed: false, internalType: 'uint256' },
+    ],
+    anonymous: false,
+  },
+] as const

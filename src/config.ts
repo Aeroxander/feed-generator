@@ -16,4 +16,9 @@ export type Config = {
   serviceDid: string
   publisherDid: string
   subscriptionReconnectDelay: number
+  tokenAddress: string
+  subgraphUrl?: string
+  etherscanApiKey?: string
+  tapUrl?: string
+  tapPassword?: string
 }

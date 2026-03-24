@@ -81,6 +81,7 @@ export const getOpsByType = async (evt: Commit): Promise<OperationsByType> => {
     reposts: { creates: [], deletes: [] },
     likes: { creates: [], deletes: [] },
     follows: { creates: [], deletes: [] },
+    tokenVotes: { creates: [], deletes: [] },
   }
 
   for (const op of evt.ops) {
@@ -103,6 +104,8 @@ export const getOpsByType = async (evt: Commit): Promise<OperationsByType> => {
         opsByType.likes.creates.push({ record, ...create })
       } else if (collection === ids.AppBskyGraphFollow && isFollow(record)) {
         opsByType.follows.creates.push({ record, ...create })
+      } else if (collection === 'app.creaton.feed.tokenVote') {
+        opsByType.tokenVotes.creates.push({ record: record as any, ...create })
       }
     }
 
@@ -115,6 +118,8 @@ export const getOpsByType = async (evt: Commit): Promise<OperationsByType> => {
         opsByType.likes.deletes.push({ uri })
       } else if (collection === ids.AppBskyGraphFollow) {
         opsByType.follows.deletes.push({ uri })
+      } else if (collection === 'app.creaton.feed.tokenVote') {
+        opsByType.tokenVotes.deletes.push({ uri })
       }
     }
   }
@@ -127,6 +132,7 @@ type OperationsByType = {
   reposts: Operations<RepostRecord>
   likes: Operations<LikeRecord>
   follows: Operations<FollowRecord>
+  tokenVotes: Operations<any>
 }
 
 type Operations<T = Record<string, unknown>> = {
